@@ -18,6 +18,7 @@ public class TestAPI {
        System.out.println(name);
    }
 
+
     @Test
     public void account(){
         String response = given()
@@ -28,5 +29,15 @@ public class TestAPI {
                 .statusCode(401).toString();
         System.out.println(response + " Пользователь не авторизован");
 
+
+   @Test
+    public void getAllTariffs() {
+        List<TariffBody> tariffList = given()
+                .when()
+                .contentType(ContentType.JSON)
+                .get(envConfig.baseUrl + "/api/v2/tariff")
+                .then().log().all()
+                .extract().body().jsonPath().getList("$", TariffBody.class);
+        System.out.println(tariffList);
     }
 }

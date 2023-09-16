@@ -18,7 +18,11 @@ import java.util.concurrent.TimeUnit;
 
     public class TestUI {
         public static AuthorizationPO authorizationPO;
+
         public static ChangeTariff changeTariff;
+=======
+	public static FAQLink faqLink;
+
         public static WebDriver driver;
         public static WebDriverWait wait;
         public static EnvConfig envConfig;
@@ -34,7 +38,11 @@ import java.util.concurrent.TimeUnit;
             envConfig = new EnvConfig();
             driver.get(envConfig.baseUrl);
             authorizationPO = new AuthorizationPO(driver);
+
             changeTariff = new ChangeTariff(driver);
+=======
+	    faqLink = new FAQLink(driver);
+
 
         }
         @AfterEach
@@ -73,6 +81,16 @@ import java.util.concurrent.TimeUnit;
             Assert.assertEquals(envConfig.urlClientTariff,URL);
         }
 
+	@Test
+        public void FaqTest() throws InterruptedException{
+
+           faqLink.FaqLink();
+           wait.until(ExpectedConditions.presenceOfElementLocated(By.className("nl-faq-header")));
+           faqLink.ReadAnswer();
+           wait.until(ExpectedConditions.presenceOfElementLocated(By.className("nl-faq__collapse-body")));
+           String URL = driver.getCurrentUrl();
+           Assert.assertEquals(envConfig.urlFAQ,URL);
+        }
     }
 
 
