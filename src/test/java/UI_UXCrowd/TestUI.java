@@ -18,7 +18,11 @@ import java.util.concurrent.TimeUnit;
 
     public class TestUI {
         public static AuthorizationPO authorizationPO;
+
+        public static ChangeTariff changeTariff;
+=======
 	public static FAQLink faqLink;
+
         public static WebDriver driver;
         public static WebDriverWait wait;
         public static EnvConfig envConfig;
@@ -34,7 +38,11 @@ import java.util.concurrent.TimeUnit;
             envConfig = new EnvConfig();
             driver.get(envConfig.baseUrl);
             authorizationPO = new AuthorizationPO(driver);
+
+            changeTariff = new ChangeTariff(driver);
+=======
 	    faqLink = new FAQLink(driver);
+
 
         }
         @AfterEach
@@ -57,18 +65,18 @@ import java.util.concurrent.TimeUnit;
         @Test
         public void tariff_change() throws InterruptedException {
 
-            authorizationPO.login();
-            authorizationPO.setLogin(envConfig.username);
-            authorizationPO.setPassword(envConfig.userPassword);
-            authorizationPO.setLogBTN();
+            changeTariff.login();
+            changeTariff.setLogin(envConfig.username);
+            changeTariff.setPassword(envConfig.userPassword);
+            changeTariff.setLogBTN();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className("sc-fzqOul")));
-            authorizationPO.setProfileBTN();
+            changeTariff.setProfileBTN();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class=\"sc-AxiKw caLFPy\"]")));
-            authorizationPO.setGoToTariffsBTN();
+            changeTariff.setGoToTariffsBTN();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class=\"sc-qbCpE daKPex\"]")));
-            authorizationPO.setChangeTariffToIndividBTN();
+            changeTariff.setChangeTariffToIndividBTN();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class=\"MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded\"]")));
-            authorizationPO.setGetInvoiceBTN();
+            changeTariff.setGetInvoiceBTN();
             String URL = driver.getCurrentUrl();
             Assert.assertEquals(envConfig.urlClientTariff,URL);
         }
