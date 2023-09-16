@@ -35,43 +35,43 @@ public class TariffsStepdefs {
         driver.get(envConfig.baseUrl);
     }
 
-    @И("нажимает кнопку войти")
-    public void нажимаетКнопкуВойти() {
+    @И("Пользователь нажимает кнопку войти")
+    public void ПользовательНажимаетКнопкуВойти() {
         authorizationPO.login();
     }
 
-    @И("вводит логин login")
-    public void вводитЛогинLogin() {
+    @И("Пользователь вводит логин login")
+    public void ПользовательВводитЛогинLogin() {
         authorizationPO.setLogin(envConfig.username);
     }
 
-    @И("вводит пароль password")
-    public void вводитПарольPassword() {
+    @И("Пользователь вводит пароль password")
+    public void ПользовательВводитПарольPassword() {
         authorizationPO.setPassword(envConfig.userPassword);
     }
 
-    @И("нажимает кнопку вход")
-    public void нажимаетКнопкуВход() {
+    @И("Пользователь нажимает кнопку вход")
+    public void ПользовательНажимаетКнопкуВход() {
         authorizationPO.setLogBTN();
     }
 
-    @И("нажимает кнопку профиль")
-    public void нажимаетКнопкуПрофиль() {
+    @И("Пользователь нажимает кнопку профиль")
+    public void ПользовательНажимаетКнопкуПрофиль() {
         authorizationPO.setProfileBTN();
     }
 
-    @И("нажимает кнопку перейти к тарифам")
-    public void нажимаетКнопкуПерейтиКТарифам() {
+    @И("Пользователь нажимает кнопку перейти к тарифам")
+    public void ПользовательНажимаетКнопкуПерейтиКТарифам() {
         authorizationPO.setGoToTariffsBTN();
     }
 
-    @И("нажимает кнопку изменить тариф")
-    public void нажимаетКнопкуИзменитьТариф() {
+    @И("Пользователь нажимает кнопку изменить тариф")
+    public void ПользовательНажимаетКнопкуИзменитьТариф() {
         authorizationPO.setChangeTariffToIndividBTN();
     }
 
-    @И("нажимает кнопку получить счет на оплату")
-    public void нажимаетКнопкуПолучитьСчетНаОплату() {
+    @И("Пользователь нажимает кнопку получить счет на оплату")
+    public void ПользовательНажимаетКнопкуПолучитьСчетНаОплату() {
         authorizationPO.setGetInvoiceBTN();
     }
 

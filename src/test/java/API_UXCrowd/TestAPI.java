@@ -17,4 +17,16 @@ public class TestAPI {
                .then().statusCode(200).toString();
        System.out.println(name);
    }
+
+    @Test
+    public void account(){
+        String response = given()
+                .when()
+                .contentType(ContentType.JSON)
+                .get(envConfig.baseUrl+"/api/account")
+                .then()
+                .statusCode(401).toString();
+        System.out.println(response + " Пользователь не авторизован");
+
+    }
 }
