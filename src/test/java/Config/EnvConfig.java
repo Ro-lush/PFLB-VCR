@@ -14,6 +14,10 @@ public class EnvConfig {
     public final String urlClientProfile;
     public final String urlClientTariff;
     public final String urlFAQ;
+    public final String urlPrice;
+    public final String orderID;
+    public final String urlMetrics;
+
 
     private static final String ENV_NAME = "ACTIVE_ENVIRONMENT";
 
@@ -30,7 +34,10 @@ public class EnvConfig {
         this.urlClient = properties.getProperty("urlClient");
         this.urlClientProfile = properties.getProperty("urlClientProfile");
         this.urlClientTariff = properties.getProperty("urlClientTariff");
-	this.urlFAQ = properties.getProperty("urlFAQ");
+	    this.urlFAQ = properties.getProperty("urlFAQ");
+        this.orderID = properties.getProperty("orderId");
+        this.urlPrice = properties.getProperty("urlPrice");
+        this.urlMetrics = properties.getProperty("urlMetrics");
 
     }
     public Properties parseProperties() {
